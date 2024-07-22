@@ -21,7 +21,7 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/profile", verifyToken, (req, res) => {
-  jwt.verify(req.token, secretKey, (err, authData) => {
+  jwt.verify(req.token, "secretkey", (err, authData) => {
     if (err) {
       res.send({ result: "Invalide Token..!" });
     } else {
