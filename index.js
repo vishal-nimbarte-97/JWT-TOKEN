@@ -18,6 +18,7 @@ app.post("/login", (req, res) => {
       token,
     });
   });
+  
 });
 
 app.post("/profile", verifyToken, (req, res) => {
@@ -35,6 +36,7 @@ app.post("/profile", verifyToken, (req, res) => {
 
 function verifyToken(req, res, next) {
   const bearerHeader = req.headers["authorization"];
+  console.log(bearerHeader.length)
   if (typeof bearerHeader !== "undefined") {
     const bearer = bearerHeader.split(" ");
     const token = bearer[1];
